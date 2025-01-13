@@ -13,10 +13,15 @@ import { ActivityIndicator, View } from "react-native";
   - Note that this assignment is intended to test your knowledge of basic React hooks, such as useState and useEffect.
 */
 
+type UserDetails = {
+  name: string;
+  email: string;
+};
+
 export const Initialization = () => {
   const getUserDetails = async () => {
     // pretends to get user details from AsyncStorage
-    return new Promise((resolve) => {
+    return new Promise<UserDetails>((resolve) => {
       setTimeout(() => {
         resolve({
           name: "John Doe",
