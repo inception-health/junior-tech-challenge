@@ -1,0 +1,26 @@
+query AllPeople {
+  allPeople {
+    edges {
+      node {
+        id
+        name
+      }
+    }
+  }
+}
+
+query AllFilms {
+  allFilms(first: null) {
+    films {
+      title
+      episodeID
+      openingCrawl
+      director
+      producers
+      releaseDate
+      created
+      edited
+      id
+    }
+  }
+}
