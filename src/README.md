@@ -16,3 +16,9 @@ Once BillingStatement.tsx is complete, you need to display it inside the Billing
 
 1. Open the following files: BillingHistory.tsx and BillingStatement.tsx inside src folder
 2. Follow instructions inside these files.
+
+## Assignment 2 - Handling logic for verifying dependents
+This assignment evaluates your ability to implement business logic by validating and categorizing dependents according to specific rules. It tests your ability to apply conditional logic to verify eligibility based on enrollment status, association with the user in the EHR system, and age restrictions. Additionally, it tests your skills in filtering and categorizing data, requiring you to sort dependents into "verified" or "unverified" groups and store the results in the analyzedDependents variable. This exercise simulates real-world problem-solving in the context of a virtual care product.
+
+1. Open the following file: functions.ts
+2. Follow instructions to finish verifyDependents function
