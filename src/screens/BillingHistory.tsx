@@ -11,7 +11,7 @@ type BillingStatement = {
 
  {/* This screen returns previous purchases for user to view.
   In real life, this data would come from some external source, such as API.
-  However, for this task it is simolified and all data is stored inside array called billingStatements. */}
+  However, for this task it is simplified and all data is stored inside array called billingStatements. */}
 
 export const BillingHistoryScreen = () => {
   const billingStatements: BillingStatement[] = [
