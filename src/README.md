@@ -22,3 +22,9 @@ This assignment evaluates your ability to implement business logic by validating
 
 1. Open the following file: functions.ts
 2. Follow instructions to finish verifyDependents function
+
+## Assignment 3 - Basic hooks
+This assignment tests your ability to use basic React hooks like `useState` and `useEffect` to manage component state and side effects. You are tasked with creating an `Initialization` screen that displays an `ActivityIndicator` while fetching user details using the provided `getUserDetails` function. Once the function resolves, the screen should hide the `ActivityIndicator` and display the user's name and email address inside a `View`. The focus is on implementing the functionality rather than rendering the component's appearance in the app.
+
+1. Open the following file: Initialization.tsx
+2. Follow instructions inside the file
