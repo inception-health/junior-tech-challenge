@@ -12,7 +12,7 @@
   Sort each dependent into one of the following categories: verified or unverified based on the rules above. analyzedDependents variable is the variable that holds your result.
 */
 
-// here is some date that you have from DB:
+// here is some data that you have from DB:
 
 // the list of dependents that are already enrolled
 const alreadyEnrolledDependents: string[] = ['123', '456', '789'];
