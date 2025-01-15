@@ -4,12 +4,13 @@
   However, not all dependents can be added to the account.
 
   These are the rules for adding dependents:
-  - Valid dependent IDs can only have numbers and cannot be empty
+  - Valid dependent IDs can only be the strings of numbers.
   - User can only add dependents that are not yet enrolled in the system.
   - User can only add dependents that are attached to them in EHR (Electronic Health Records) system.
   - User can only add dependents that are not 18 years old yet.
 
-  Sort each dependent into one of the following categories: verified or unverified based on the rules above. analyzedDependents variable is the variable that holds your result.
+  Sort each dependent into one of the following categories: verified or unverified based on the rules above. Incorrect dependentIDs do not need to be returned back.
+  analyzedDependents variable is the variable that holds your result.
 */
 
 // here is some data that you have from DB:
@@ -46,7 +47,7 @@ export const verifyDependents = (
   const dependentIds: string[] = ['123', '2367', '99087', '456', '789', '101112', '131415', '001298', 'ihy789', '161718', ''];
 
   const analyzedDependents: AnalyzedDependents = {
-    userId: '',
+    userId: '', 
     verified: [],
     unverified: [],
   }
