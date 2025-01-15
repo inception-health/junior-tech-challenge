@@ -5,8 +5,8 @@ These challenges are designed for junior developers and are based on real scenar
 Some important things to note:
 - You do not need to build an app to display your work (unless you want to). Your focus should be on writing code.
 - You are not allowed to use ChatGPT or any other AI tools. However, you are free to use the internet.
-- If React Native or React syntax is unfamiliar to you, feel free to use pseudocode. This will not affect your score as long as you demonstrate problem-solving skills.
-- Be prepared to walk us through your code and explain your thought process.
+- If React Native or React syntax is unfamiliar to you, feel free to use pseudocode. This will not affect your performance.
+- Be ready to code live since we do a lot of team coding sessions.
 - You can choose to complete any of the following tasks (1 or 2 for extra credit)
 
 ## Assignment 1 - Basic Screen and Components
