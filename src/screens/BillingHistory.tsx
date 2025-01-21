@@ -35,7 +35,7 @@ export const BillingHistoryScreen = () => {
     },
   ];
 
-  const billingStatementsComponents = (statement) => {
+  const billingStatementsComponents = (statement: any) => {
     return (
       <BillingStatement amount={0} date={statement.date} productName={statement.productName} id={statement.id}></BillingStatement>
     )

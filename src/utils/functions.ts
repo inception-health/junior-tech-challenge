@@ -31,12 +31,15 @@ const dependentEhrInfo = [
   { id: "161718", name: "Jenny", "age": 3, relation: "daughter" },
 ];
 
+['101112', '131415', '161718']
 // returned value type
 type AnalyzedDependents = {
   userId: string;
   verified: string[];
   unverified: string[];
 }
+
+
 
 export const verifyDependents = (
 ): AnalyzedDependents => {
@@ -51,6 +54,37 @@ export const verifyDependents = (
     verified: [],
     unverified: [],
   }
-  
+
+  ////// BEGIN DYSON'S SOLUTION /////
+
+  const alreadyEnrolledMap: { [id: string]: boolean } = {} // NOT in this one
+  const attachedDependentsMap: { [id: string]: boolean } = {} // YES in this one
+  const dependentEhrMap: { [id: string]: number } = {} // under 18
+
+  alreadyEnrolledDependents.forEach((dependent) => {
+    alreadyEnrolledMap[dependent] = true
+  });
+  ehrAttachedDependents.forEach((dependent) => {
+    attachedDependentsMap[dependent] = true
+  });
+  dependentEhrInfo.forEach((dependent) => {
+    dependentEhrMap[dependent.id] = dependent.age
+  });
+
+
+// kind of hardcoded this, since by the time we're in this function I'm assuming that we've narrowed the user down to this particular user
+  analyzedDependents.userId = userId 
+  dependentIds.forEach((dependent) => {
+    console.log(`${dependent}: ${!alreadyEnrolledMap[dependent]}`)
+    if(!((typeof dependent) === 'string') || dependent.length < 1 || !dependent.match(/^(?!.?\D)\d+/)) {
+      return;
+    } else if(!alreadyEnrolledMap[dependent] && attachedDependentsMap[dependent] && dependentEhrMap[dependent] && dependentEhrMap[dependent] < 18) {
+      analyzedDependents.verified.push(dependent);
+    } else {
+      analyzedDependents.unverified.push(dependent);
+    }
+  });
+
   return analyzedDependents;
 };
+
