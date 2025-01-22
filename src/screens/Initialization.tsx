@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { ActivityIndicator, View } from "react-native";
 
 /*
@@ -19,7 +19,25 @@ type UserDetails = {
 };
 
 export const Initialization = () => {
+  const [initialized,setInitialized] = useState<null|UserDetails>(null);
+  const [loading, setLoading] = useState(true);
+  const [errorMessage, setErrorMessage] =useState<null|string>(null);
+  
+  useEffect(() => {
+    getUserDetails().then((response) => {
+      if(response) {
+        setInitialized(response)
+        setLoading(false)
+      }
+    })
+    .catch((error) => {
+      setErrorMessage(error.message)
+      setLoading(false)
+    })
+  },[])
+
   const getUserDetails = async () => {
+    setLoading(true)
     // pretends to get user details from AsyncStorage
     return new Promise<UserDetails>((resolve) => {
       setTimeout(() => {
@@ -31,5 +49,9 @@ export const Initialization = () => {
     });
   };
 
-  return <View></View>;
+  return <View>
+    {loading && <ActivityIndicator/>}
+    {initialized && <Text>{initialized.name} {initialized.email}</Text>}
+    {errorMessage && <Text>{errorMessage}</Text>}
+  </View>;
 };
