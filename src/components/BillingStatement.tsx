@@ -10,16 +10,17 @@ import { View, Text } from "react-native";
 }
 
 type BillingStatementProps = {
-  name: string;
-  date?: Date;
+  id: number;
+  productName?: string;
+  date?: string;
   amount: number;
 };
 
-export const BillingStatement = ({name, date, amount}: BillingStatementProps) => {
+export const BillingStatement = ({productName, date, amount}: BillingStatementProps) => {
   return(
     <View>
-      <Text>{name}</Text>
-      {date != undefined && <Text>{date.toISOString()}</Text>}
+      <Text>{productName}</Text>
+      {date != undefined && <Text>{date}</Text>}
       {amount > 100 ? <View>
                         <Text>Big Savings!</Text>
                         <Text>{`$${amount.toFixed(2)}`}</Text>
