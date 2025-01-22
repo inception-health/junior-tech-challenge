@@ -10,8 +10,10 @@ import React from "react";
 
 type BillingStatementProps = {
   name: string;
-  data: Date;
+  date?: Date;
   amount: number;
 };
 
-export const BillingStatement = ({}: BillingStatementProps) => {};
+export const BillingStatement = ({name, date, amount}: BillingStatementProps) => {
+
+};
