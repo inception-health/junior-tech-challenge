@@ -20,6 +20,13 @@ export const BillingStatement = ({name, date, amount}: BillingStatementProps) =>
     <View>
       <Text>{name}</Text>
       {date != undefined && <Text>{date.toISOString()}</Text>}
+      {amount > 100 ? <View>
+                        <Text>Big Savings!</Text>
+                        <Text>{`$${amount.toFixed(2)}`}</Text>
+                        </View> : 
+                        <View>
+                          <Text>{`$${amount.toFixed(2)}`}</Text>
+                          </View>}
     </View>
   )
 };
