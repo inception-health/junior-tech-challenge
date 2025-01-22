@@ -8,6 +8,10 @@ import React from "react";
   5. If price is above 100, add another line of text that says "Big Savings!". */
 }
 
-type BillingStatementProps = {};
+type BillingStatementProps = {
+  name: string;
+  data: Date;
+  amount: number;
+};
 
 export const BillingStatement = ({}: BillingStatementProps) => {};
