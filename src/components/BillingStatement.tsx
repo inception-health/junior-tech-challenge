@@ -1,4 +1,5 @@
 import React from "react";
+import { View, Text } from "react-native";
 {
   /* This component renders each individual billing statement. Some requirements to note:
   1. Display product name, date and amount.
@@ -15,5 +16,10 @@ type BillingStatementProps = {
 };
 
 export const BillingStatement = ({name, date, amount}: BillingStatementProps) => {
-
+  return(
+    <View>
+      <Text>{name}</Text>
+      {date != undefined && <Text>{date.toISOString()}</Text>}
+    </View>
+  )
 };
