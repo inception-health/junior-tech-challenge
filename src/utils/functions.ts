@@ -55,9 +55,13 @@ export const verifyDependents = (
   dependentIds.forEach((dependentId) => {
     if(ehrAttachedDependents.includes(dependentId) && !alreadyEnrolledDependents.includes(dependentId)) {
        let newDependent = dependentEhrInfo.find((dependent) => dependent.id === dependentId)
-       if(!!newDependent){
-        analyzedDependents.verified.push(newDependent)
+       if(newDependent && newDependent.age < 18){
+        analyzedDependents.verified.push(newDependent.id)
+       } else {
+        analyzedDependents.verified.push(newDependent.id)
        }
+    } else {
+
     }
   })
   
