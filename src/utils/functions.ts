@@ -51,6 +51,12 @@ export const verifyDependents = (
     verified: [],
     unverified: [],
   }
+
+  dependentIds.forEach((dependent) => {
+    if(ehrAttachedDependents.includes(dependent) && !alreadyEnrolledDependents.includes(dependent)) {
+
+    }
+  })
   
   return analyzedDependents;
 };
