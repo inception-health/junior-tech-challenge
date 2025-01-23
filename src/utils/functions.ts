@@ -58,10 +58,10 @@ export const verifyDependents = (
        if(newDependent && newDependent.age < 18){
         analyzedDependents.verified.push(newDependent.id)
        } else {
-        analyzedDependents.verified.push(newDependent.id)
+        analyzedDependents.unverified.push(dependentId)
        }
     } else {
-
+      analyzedDependents.unverified.push(dependentId)
     }
   })
   
