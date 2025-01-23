@@ -51,6 +51,7 @@ export const verifyDependents = (
     verified: [],
     unverified: [],
   }
+analyzedDependents.userId = userId;
 
   dependentIds.forEach((dependentId) => {
     switch (Number(dependentId)) {
