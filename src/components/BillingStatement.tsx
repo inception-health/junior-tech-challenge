@@ -1,4 +1,5 @@
 import React from "react";
+import { View, Text } from "react-native";
 {
   /* This component renders each individual billing statement. Some requirements to note:
   1. Display product name, date and amount.
@@ -8,6 +9,25 @@ import React from "react";
   5. If price is above 100, add another line of text that says "Big Savings!". */
 }
 
-type BillingStatementProps = {};
+type BillingStatementProps = {
+  id: number;
+  productName?: string;
+  date?: string;
+  amount: number;
+};
 
-export const BillingStatement = ({}: BillingStatementProps) => {};
+export const BillingStatement = ({productName, date, amount}: BillingStatementProps) => {
+  return(
+    <View>
+      <Text>{productName}</Text>
+      {date != undefined && <Text>{date}</Text>}
+      {amount > 100 ? <View>
+                        <Text>Big Savings!</Text>
+                        <Text>{`$${amount.toFixed(2)}`}</Text>
+                        </View> : 
+                        <View>
+                          <Text>{`$${amount.toFixed(2)}`}</Text>
+                          </View>}
+    </View>
+  )
+};

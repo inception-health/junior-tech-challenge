@@ -39,7 +39,16 @@ export const BillingHistoryScreen = () => {
     <View style={Styles.container}>
       <Text>Billing History</Text>
 
-      {/* Show Billing Statements here */}
+      {billingStatements.map((statement) => {
+        return(
+          <BillingStatement
+          id={statement.id} 
+          productName={statement.productName} 
+          date={statement.date}
+          amount={statement.amount}
+          />
+        )
+      })}
     </View>
   );
 };
