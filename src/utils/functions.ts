@@ -52,9 +52,12 @@ export const verifyDependents = (
     unverified: [],
   }
 
-  dependentIds.forEach((dependent) => {
-    if(ehrAttachedDependents.includes(dependent) && !alreadyEnrolledDependents.includes(dependent)) {
-
+  dependentIds.forEach((dependentId) => {
+    if(ehrAttachedDependents.includes(dependentId) && !alreadyEnrolledDependents.includes(dependentId)) {
+       let newDependent = dependentEhrInfo.find((dependent) => dependent.id === dependentId)
+       if(!!newDependent){
+        analyzedDependents.verified.push(newDependent)
+       }
     }
   })
   
