@@ -1,8 +1,8 @@
 import React from "react";
-import { StyleSheet, View, Text } from "react-native";
+import { StyleSheet, View, Text, FlatList } from "react-native";
 import { BillingStatement } from "../components/BillingStatement";
 
-type BillingStatement = {
+export type BillingStatementProps = {
   id: number;
   productName?: string;
   date?: string;
@@ -14,7 +14,7 @@ type BillingStatement = {
   However, for this task it is simplified and all data is stored inside array called billingStatements. */}
 
 export const BillingHistoryScreen = () => {
-  const billingStatements: BillingStatement[] = [
+  const billingStatements: BillingStatementProps[] = [
     {
       id: 1,
       productName: "Jeans",
@@ -35,11 +35,21 @@ export const BillingHistoryScreen = () => {
     },
   ];
 
+  const billingStatementsComponents = (statement: any) => {
+    return (
+      <BillingStatement amount={0} date={statement.date} productName={statement.productName} id={statement.id}></BillingStatement>
+    )
+  };
+
   return (
     <View style={Styles.container}>
       <Text>Billing History</Text>
-
-      {/* Show Billing Statements here */}
+      <FlatList
+        data={billingStatements}
+        renderItem={({item}) => billingStatementsComponents(item)}
+        keyExtractor={ item => item.id as unknown as string }
+        >
+      </FlatList>
     </View>
   );
 };

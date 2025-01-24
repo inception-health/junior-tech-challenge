@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { ActivityIndicator, View } from "react-native";
+import { ActivityIndicator, View, Text } from "react-native";
 
 /*
   When user first opens the app, this screen is displayed.
@@ -19,6 +19,9 @@ type UserDetails = {
 };
 
 export const Initialization = () => {
+  const [loading, setLoading] = useState<boolean>(true)
+  const [user, setUser] = useState<UserDetails>({ name: "", email: "" })
+
   const getUserDetails = async () => {
     // pretends to get user details from AsyncStorage
     return new Promise<UserDetails>((resolve) => {
@@ -31,5 +34,26 @@ export const Initialization = () => {
     });
   };
 
-  return <View></View>;
+  useEffect(() => {
+    getUserDetails().then((deets) => {
+      setUser(deets);
+    }).catch((e) => {
+      throw `Error loading user details: ${e.message}`
+    }).finally(() => {
+      setLoading(false);
+    })
+  }, []);
+
+  return (
+    loading ? 
+    <ActivityIndicator style={{flex: 1}}></ActivityIndicator>
+    :
+    <View>
+      <Text>
+        {user.name}
+        {user.email}
+      </Text>
+    </View>
+    
+  );
 };
